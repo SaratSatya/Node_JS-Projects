@@ -62,12 +62,15 @@ app.route('/api/users/:id')
 
 app.post("/api/users", (req, res) => {
     const body = req.body;
+    if(!body || !body.first_name || !body.last_name || !body.email || !body.gender || !body.job_title){
+        return res.status(400).json({ error: "Missing required user fields" }); 
+    }
     const newUser = { ...body, id: users.length ? users[users.length - 1].id + 1 : 1 };
     users.push(newUser);
 
-    fs.writeFileSync('./MOCK_DATA (1).json', JSON.stringify(users, null, 2));
-
-    return res.json({ status: "User added", user: newUser });
+    fs.writeFileSync('./MOCK_DATA (1).json', JSON.stringify(users),(err,data)=>{
+        return res.status(201).json({ status: "User added", user: newUser });
+    });
 });
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));

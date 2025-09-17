@@ -1,3 +1,8 @@
+//First read this file to understand what project does 
+
+Simple I will be getting some requests. Based on the requests I get I will be handling them and sending them some response.
+
+
 REST API - JSON
 
 GET/users- HTML Document Render 
