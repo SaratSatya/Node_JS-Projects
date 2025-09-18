@@ -20,3 +20,10 @@ POST /api/users= Create new user
 PATCH /api/users/1 - Edit the user with ID 1
 
 DELETE /api/users/1- Delete the User with ID 1
+
+Used Mongoose for the first Time
+Installed Mongoose package.
+Connected Mongoose to the local database
+Defined a schema
+Created a model
+Executed CRUD operations using methods of the models like findByIdAndUpdate, findByIdAndDelete etc
